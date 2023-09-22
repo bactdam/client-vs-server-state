@@ -2,15 +2,21 @@ import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import BlogsPage from "./pages/blogs";
 import BlogPage from "./pages/blogs/:id";
+import { AppShell } from "./components/AppShell";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <BlogsPage />,
-  },
-  {
-    path: "/:id",
-    element: <BlogPage />,
+    element: <AppShell />,
+    children: [
+      {
+        path: "/",
+        element: <BlogsPage />,
+      },
+      {
+        path: "/:id",
+        element: <BlogPage />,
+      },
+    ],
   },
 ]);
 

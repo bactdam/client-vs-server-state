@@ -14,7 +14,14 @@ app.get("/blogs", async (req, res) => {
   const end = page * pageSize;
   const blogs = data.slice(start, end);
   await sleep(400);
-  res.json(blogs);
+  res.json(
+    blogs.map((i) => ({
+      id: i.id,
+      firstName: i.firstName,
+      lastName: i.lastName,
+      blurb: i.blurb,
+    }))
+  );
 });
 
 app.get("/blogs/:id", async (req, res) => {

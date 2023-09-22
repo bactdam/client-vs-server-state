@@ -17,7 +17,7 @@ const BlogPage = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div>
       {loading ? (
         <div>Loading...</div>
       ) : (
