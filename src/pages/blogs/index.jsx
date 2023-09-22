@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getBlogs } from "../../apis/blogs";
 import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../../context/AppContext";
 
 const BlogsPage = () => {
-  const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
+  const { blogs, setBlogs } = useAppContext();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

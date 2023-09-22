@@ -13,7 +13,7 @@ app.get("/blogs", async (req, res) => {
   const start = (page - 1) * pageSize;
   const end = page * pageSize;
   const blogs = data.slice(start, end);
-  await sleep(400);
+  await sleep(1000);
   res.json(
     blogs.map((i) => ({
       id: i.id,
@@ -29,11 +29,11 @@ app.get("/blogs/:id", async (req, res) => {
   const blog = data.find((blog) => {
     return blog.id === parseInt(id);
   });
-  await sleep(400);
+  await sleep(1000);
   res.json(blog);
 });
 
-app.listen(3001, () => {
+app.listen(3002, () => {
   console.log("Server is running on port 3001");
 });
 
